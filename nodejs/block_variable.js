@@ -4,10 +4,8 @@
  * not within the statement.
  */
 
-function main() {
+(function() {
     { var j = 1; }
     for (var i = 1; i < 10; i++);
     console.log("we can get variable 'i' and 'j' here, which are " + i + " and " + j + ".");
-}
-
-main()
+})()
