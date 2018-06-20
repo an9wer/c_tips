@@ -1,12 +1,21 @@
 /*
  * JavaScript will never tell you if you’ve declared the same variable more
- * than once; it simply ignores all subsequent declarations 
+ * than once by using `var`; it simply ignores all subsequent declarations.
  */
 
-(function() {
-    var val = 1;
-    console.log("before repeated declaration, val is " + val);
-    var val;
-    var val;
-    console.log(" after repeated declaration, val is " + val);
-})()
+var a = 1;
+console.log("before repeated declaration, var-declared variable `a` is " + a);
+var a;
+var a;
+console.log(" after repeated declaration, var-declared variable `a` is " + a);
+
+
+/*
+ * But we cannot redeclare variable by using `let` and `const`.
+ */
+
+let b = 1;
+// let b = 2;   // SyntaxError
+
+const c = 1;
+// const a = 1; // SyntaxError
