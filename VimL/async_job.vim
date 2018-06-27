@@ -18,3 +18,5 @@ function Main()
    \    "close_cb": "CloseHandler"
    \  })
 endfunction
+
+call Main()
