@@ -1,9 +1,7 @@
 ### Usage
 
-1.  load only plugin `foo.vim` and then open file `bar`:
+-   change to this directory, and then execute the following command:
 
-        vim --noplugin -N -u foo.vim bar
+        vim --noplugin -e -N -u .vimrc -c q {foo}.vim
 
-2.  after open file `bar`, call the function `Main()` in vim:
-
-        :call Main()
+    Note: replace `foo` to vim script name you want to run.
