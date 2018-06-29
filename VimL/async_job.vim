@@ -12,11 +12,11 @@ function! Main()
   endfunction
 
   let g:job = job_start(
-   \  '/bin/bash -c "sleep 1; echo something"', {
-   \    "out_cb": "OutHandler",
-   \    "err_cb": "ErrHandler",
-   \    "close_cb": "CloseHandler"
-   \  })
+    \ '/bin/bash -c "sleep 1; echo something"', {
+    \   "out_cb": "OutHandler",
+    \   "err_cb": "ErrHandler",
+    \   "close_cb": "CloseHandler"
+    \ })
 
   2sleep
 endfunction
