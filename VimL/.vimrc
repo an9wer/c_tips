@@ -23,5 +23,8 @@ let s:crt_dir_path = expand("%:p:h")
 if match(s:crt_file_path, s:self_dir_path) == 0
   execute "set runtimepath=" . s:crt_dir_path
   execute "runtime " . s:crt_file_name
-  call Main()
+  if !exists("g:auto_call_main")
+      \ || (exists("g:auto_call_main") && g:auto_call_main != 0)
+    call Main()
+  endif
 endif

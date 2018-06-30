@@ -1,21 +1,30 @@
+function s:CloseHandler(channel)
+  echom "CloseHandler :" ch_status(a:channel)
+endfunction
+
+function s:ExitHandler(job, es)
+  echom "ExitHandler :" a:job a:es
+endfunction
+
+function s:OutHandler(channel, msg)
+  echom "OutHandler :" ch_status(a:channel) a:msg
+endfunction
+
+function s:ErrHandler(channel, msg)
+  echoe "ErrHandler :" ch_status(a:channel) a:msg
+endfunction
+
 function! Main()
-  function CloseHandler(channel)
-    echom ch_status(a:channel)
-  endfunction
+  let l:CloseHandler = function("s:CloseHandler")
+  let l:ExitHandler = function("s:ExitHandler")
+  let l:OutHandler = function("s:OutHandler")
+  let l:ErrHandler = function("s:ErrHandler")
 
-  function OutHandler(channel, msg)
-    echom ch_status(a:channel) a:msg
-  endfunction
-
-  function ErrHandler(channel, msg)
-    echoe ch_status(a:channel) a:msg
-  endfunction
-
-  let g:job = job_start(
-    \ '/bin/bash -c "sleep 1; echo something"', {
-    \   "out_cb": "OutHandler",
-    \   "err_cb": "ErrHandler",
-    \   "close_cb": "CloseHandler"
+  let l:job = job_start(["/bin/bash", "-c", "sleep 1; echo something"], {
+    \   "close_cb": l:CloseHandler,
+    \   "exit_cb": l:ExitHandler,
+    \   "out_cb": l:OutHandler,
+    \   "err_cb": l:ErrHandler,
     \ })
 
   2sleep
