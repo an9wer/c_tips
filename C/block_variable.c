@@ -1,6 +1,7 @@
 /*
- * the variable i defined in the block statement representing the for loop
- * would be destroyed as soon as the loop completed. 
+ * the variable `j` defined in the block statement and `i` defined in the block
+ * statement representing the for loop would be destroyed as soon as the loop
+ * completed. 
  */
 
 #include <stdio.h>

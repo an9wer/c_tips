@@ -1,3 +1,16 @@
+/*
+ * C provides a compile-time unary operator called sizeof that can be used to
+ * compute the size of any object. The expressions:
+ *
+ *  sizeof object
+ *
+ * and:
+ *
+ *  sizeof (type name)
+ *
+ * Note: Parentheses are required for types but are optional for object.
+ */
+
 #include <stdio.h>
 
 int main(void)
@@ -9,5 +22,6 @@ int main(void)
     printf("float\t%zd\n", sizeof (float));
     printf("double\t%zd\n", sizeof (double));
     printf("long double\t%zd\n", sizeof (long double));
+
     return 0;
 }
