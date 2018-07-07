@@ -1,35 +1,31 @@
 /*
  * size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)
- *
- * Reads data from the given `stream` into the array pointed to by `ptr`. It
- * reads `nmemb` number of elements of size `size`. The total number of bytes
- * read is (size*nmemb).
-
- * On success the number of elements read is returned. On error or end-of-file
- * the total number of elements successfully read (which may be zero) is
- * returned. 
  */
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include "main.h"
 
 int main(void)
 {
-    FILE *fp;
-    size_t len;
-    char buffer[100];
+    FILE *fp = fopen(TEST_FILE, "r");
+    if (fp == NULL) goto error;
 
-    fp = fopen("/tmp/test.txt", "r");
-    if (fp == NULL) {
-        perror("Error opening file.");
-        return 1;
-    }
-    fseek(fp, 0, SEEK_END);
-    len = (size_t)ftell(fp);
-    fseek(fp, 0, SEEK_SET);
+    fseek(fp, 0L, SEEK_END);
+    size_t len = (size_t)ftell(fp);
+    char *buffer = (char *)malloc(len);
+
+    fseek(fp, 0L, SEEK_SET);
     fread(buffer, sizeof (char), len, fp);
-    printf("%s", buffer);
-    fclose(fp);
 
-    return 0;
+    printf("%s", buffer);
+
+    free(buffer);
+    fclose(fp);
+    return EXIT_SUCCESS;
+
+error:
+    perror("Error");
+    return EXIT_FAILURE;
 }
