@@ -1,5 +1,10 @@
 /*
  * size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream)
+ *
+ * On success, fread() and fwrite() return the number of items read or written.
+ * This number equals the number of bytes transferred only when size is 1. If
+ * an error occurs, or the end of the file is reached, the return value is a
+ * short item count (or zero).
  */
 
 #include <stdio.h>
@@ -9,11 +14,17 @@
 
 int main(void)
 {
-    char str[] = "something\n";
+    char str[] = TEST_STRING;
 
     FILE *fp = fopen(TEST_FILE, "w");
-    fwrite(str, sizeof (char), strlen(str), fp);
+    size_t rt = fwrite(str, sizeof (char), strlen(str), fp);
+    if (rt != strlen(str)) goto error;
 
     fclose(fp);
     return EXIT_SUCCESS;
+
+error:
+    perror("Error");
+    if (fp != NULL) fclose(fp);
+    return EXIT_FAILURE;
 }

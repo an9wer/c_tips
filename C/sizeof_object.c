@@ -12,12 +12,12 @@
  */
 
 #include <stdio.h>
-#include <string.h>
+#include "main.h"
 
 int main(void)
 {
     int num[20];
-    char str[] = "something";
+    char str[] = TEST_STRING;
     printf("%zd\n", sizeof num);
     printf("%zd\n", sizeof str);
 

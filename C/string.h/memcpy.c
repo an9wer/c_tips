@@ -1,5 +1,7 @@
 /*
- * void* memcpy( void *dest, const void *src, size_t count );
+ * void* memcpy(void *dest, const void *src, size_t n)
+ *
+ * The memcpy() function return a pointer to dest.
  */
 
 #include <stdio.h>

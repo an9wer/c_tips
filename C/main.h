@@ -2,6 +2,6 @@
 #define MAIN_H
 
 #define TEST_FILE           "/tmp/test.txt"
-#define TEST_NONEXIST_FILE  "/tmp/FsOldUhAenDmMzsNBd.txt"
+#define TEST_STRING         "something"
 
 #endif /* MAIN_H */
