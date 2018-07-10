@@ -19,8 +19,3 @@
  * block in which they are defined, and the memory is freed when the block is
  * exited.
  */
-
-int main(void)
-{
-    return 0;
-}
