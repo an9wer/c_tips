@@ -22,7 +22,6 @@ int main(void)
     size_t len = (size_t)ftell(fp);
     char *buffer = (char *)malloc(len);
 
-
     // read file content to buffer
     fseek(fp, 0L, SEEK_SET);
     size_t rt = fread(buffer, sizeof (char), len, fp);
