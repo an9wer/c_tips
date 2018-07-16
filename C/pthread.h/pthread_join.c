@@ -16,28 +16,27 @@ struct foo foo = {1, 2, 3};
 
 void * thread_func(void * arg)
 {
+    /*
+     * if uncommenting the following code, it may get different result,
+     * for the stack of the struct `foo` might be destoryed after thread
+     * returns or exits.
+     */
+    // struct foo foo = {1, 2, 3};
     foo.a = 11;
     foo.b = 22;
     foo.c = 33;
-    return (void *) &foo;
-}
-
-void * thread_func2(void *arg)
-{
-    return (void *) 0;
+    pthread_exit((void *) &foo);
 }
 
 int main(void)
 {
-    int b = 1;
-    int *a = &b;
-    printf("%p\n", NULL);
-
+    printf("%ld\n", pthread_self());
     pthread_t tid;
     if (pthread_create(&tid, NULL, thread_func, NULL) != 0) goto error;
 
     struct foo *trt;
-    if (pthread_join(tid, (void *) &trt) != 0) goto error;
+    if (pthread_join(tid, (void **) &trt) != 0) goto error;
+
     printf("trt->a: %d\n", trt->a);
     printf("trt->b: %d\n", trt->b);
     printf("trt->c: %d\n", trt->c);

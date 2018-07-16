@@ -33,8 +33,7 @@ void * thread_func(void *arg)
 int main(void)
 {
     pthread_t tid;
-    int rt = pthread_create(&tid, NULL, thread_func, NULL);
-    if (rt != 0) goto error;
+    if (pthread_create(&tid, NULL, thread_func, NULL)) goto error;
     sleep(1);
     return EXIT_SUCCESS;
 error:
