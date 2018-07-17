@@ -14,8 +14,7 @@
 
 int main(void)
 {
-    time_t seconds;
-    seconds = time(NULL);
+    time_t seconds = time(NULL);
     printf("seconds since January 1, 1970 = %ld\n", seconds);
 
     return 0;

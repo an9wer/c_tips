@@ -17,5 +17,12 @@ int main(void)
      */
     // rect3 = rect1;
 
+
+    /* C99 and C11 provide designated initializers for structures */
+    struct rect rect4 = {
+        .y = 2.0,
+        .x = 1.0,
+    };
+
     return EXIT_SUCCESS;
 }
