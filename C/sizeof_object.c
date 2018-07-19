@@ -12,6 +12,7 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "main.h"
 
 int main(void)
@@ -21,5 +22,5 @@ int main(void)
     printf("%zd\n", sizeof num);
     printf("%zd\n", sizeof str);
 
-    return 0;
+    return EXIT_SUCCESS;
 }
