@@ -1,8 +1,8 @@
 /*
- * int lstat(const char *pathname, struct stat *statbuf);
+ * int stat(const char *restrict path, struct stat *restrict buf)
  *
- * on success, zero is returned.
- * on error, -1 is returned, and errno is set appropriately.
+ * On success, zero is returned. On error, -1 is returned, and errno is set
+ * appropriately.
  */
 
 #include <sys/stat.h>
@@ -24,7 +24,7 @@ int main(void)
     struct stat buf;
     
     for (int i = 0; i < sizeof(files) / sizeof(files[0]); i++) {
-        if (lstat(files[i], &buf) == -1) {
+        if (stat(files[i], &buf) == -1) {
             perror("Error");
             continue;
         }
