@@ -16,7 +16,7 @@
 int main(void)
 {
     char str[] = TEST_STRING;
-    printf("%zd\n", strlen(str));
+    printf("%s: %zd\n", TEST_STRING, strlen(str));
 
     return EXIT_SUCCESS;
 }
