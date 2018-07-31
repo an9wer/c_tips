@@ -23,5 +23,7 @@ int main(void)
     printf("double\t%zd\n", sizeof (double));
     printf("long double\t%zd\n", sizeof (long double));
 
+    printf("char[0]\t%zd\n", sizeof (char[0]));
+    printf("char[1]\t%zd\n", sizeof (char[1]));
     return 0;
 }
