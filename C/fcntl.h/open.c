@@ -1,11 +1,5 @@
 /*
  * int open(const char *path, int oflag, ...)
- *
- * Upon successful completion, the function shall open the file and return a
- * non-negative integer representing the lowest numbered unused file
- * descriptor. Otherwise, the function shall return −1 and set errno to
- * indicate the error. If −1 is returned, no files shall be created or
- * modified.
  */
 
 #include <fcntl.h>
@@ -15,10 +9,18 @@
 
 int main(void)
 {
-    int fd = open("/dev/tty", O_RDWR);
-    if (fd == -1) goto error;
+    int fd;
 
-    close(fd);
+    /* normal */
+    fd = open("/dev/tty", O_RDWR);
+    if (fd == -1) goto error;
+    else close(fd);
+
+    /* open in nonblock mode */
+    fd = open("/dev/tty", O_RDWR | O_NONBLOCK);
+    if (fd == -1) goto error;
+    else close(fd);
+
     return EXIT_SUCCESS;
 
 error:
