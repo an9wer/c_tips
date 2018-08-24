@@ -3,7 +3,8 @@
 
 int main(void)
 {
-    tips_fork();
+    tips_fork_zombie();
+    tips_fork_orphan();
 
-    TIPS_EXIT_S;
+    return EXIT_SUCCESS;
 }
