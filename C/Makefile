@@ -2,10 +2,10 @@
 all: unistd sys_wait
 
 unistd:
-	gcc -Iinclude unistd.h/main.c unistd.h/fork.c -o $@
+	gcc -Iinclude unistd.h/main.c unistd.h/fork.c unistd.h/exec.c -o $@
 
 sys_wait:
-	gcc -Iinclude sys/wait.h/main.c sys/wait.h/wait.c -o $@
+	gcc -Iinclude sys/wait.h/main.c sys/wait.h/wait.c sys/wait.h/waitpid.c -o $@
 
 
 .PHONY: clean

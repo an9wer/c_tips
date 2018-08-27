@@ -3,6 +3,9 @@
 
 int main(void)
 {
+    tips_execvp();
+    tips_execl();
+
     tips_fork_zombie();
     tips_fork_orphan();
 

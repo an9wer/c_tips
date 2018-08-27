@@ -3,8 +3,11 @@
 
 int main(void)
 {
-    tips_wait_success();
-    tips_wait_abort();
+    tips_wait_exit();
+    tips_wait_signal();
+
+    tips_waitpid();
+    tips_waitpid_WNOHANG();
 
     return EXIT_SUCCESS;
 }

@@ -27,7 +27,7 @@ void tips_fork_zombie(void)
         printf("(child process)\n");
         exit(EXIT_SUCCESS);
     } else {
-        sleep(20);  // use "ps aux | grep 'Z'" command to check zombie process
+        sleep(10);  // use "ps aux | grep 'Z'" command to check zombie process
         printf("(parent process)\n");
     }
     fflush(stdout); // ensure all buffer is flushed
@@ -42,7 +42,7 @@ void tips_fork_orphan(void)
     if (pid == -1)
         TIPS_PERROR_AND_EXIT_FAILURE;
     else if (pid == 0) {
-        sleep(20);
+        sleep(10);
         printf("child process\n");
     }
     else {

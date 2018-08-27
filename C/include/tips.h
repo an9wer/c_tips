@@ -29,7 +29,7 @@
         exit(EXIT_FAILURE); \
     } while(0)
 
-#define TIPS_HEAD printf(TIPS_ANSI_BLUE "%*s%*s\n" TIPS_ANSI_RESET, \
+#define TIPS_HEAD printf(TIPS_ANSI_BLUE "%*s%*s" TIPS_ANSI_RESET "\n", \
                          40 + (int) strlen(__func__) / 2, __func__, \
                          40 - (int) strlen(__func__) / 2, "")
 

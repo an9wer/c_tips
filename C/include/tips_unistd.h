@@ -4,4 +4,7 @@
 void tips_fork_zombie(void);
 void tips_fork_orphan(void);
 
+void tips_execvp(void);
+void tips_execl(void);
+
 #endif /* TIPS_UNISTD_H */
