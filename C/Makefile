@@ -1,8 +1,8 @@
 .PHONY: all
-all: unistd sys_wait
+all: unistd.h/unistd sys_wait
 
-unistd:
-	gcc -Iinclude unistd.h/main.c unistd.h/fork.c unistd.h/exec.c -o $@
+unistd.h/unistd: unistd.h/Makefile
+	cd unistd.h && make
 
 sys_wait:
 	gcc -Iinclude sys/wait.h/main.c sys/wait.h/wait.c sys/wait.h/waitpid.c -o $@
@@ -10,4 +10,4 @@ sys_wait:
 
 .PHONY: clean
 clean:
-	rm -f unistd sys_wait
+	rm -f unistd.h/unistd sys_wait

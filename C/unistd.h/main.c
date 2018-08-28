@@ -3,6 +3,18 @@
 
 int main(void)
 {
+    tips_getuid();
+    tips_getgid();
+    tips_geteuid();
+    tips_getegid();
+
+    tips_setuid();
+    tips_setgid();
+    tips_seteuid();
+    tips_setegid();
+    tips_setreuid();
+    tips_setregid();
+
     tips_execvp();
     tips_execl();
 
