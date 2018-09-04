@@ -1,20 +1,15 @@
 .PHONY: all
-#all: unistd.h/unistd sys_wait
-all: sys_wait a
+all: unistd.h/unistd sys_wait stdlib.h/stdlib
 
-unistd.h/unistd: head unistd.h/Makefile
+unistd.h/unistd: unistd.h/Makefile
 	cd unistd.h && make
 
-a: head
-	@echo aaa
+stdlib.h/stdlib:
+	gcc -Iinclude stdlib.h/main.c stdlib.h/system.c -o $@
 
-sys_wait: head
+sys_wait:
 	gcc -Iinclude sys/wait.h/main.c sys/wait.h/wait.c sys/wait.h/waitpid.c -o $@
-
-.PHONY: head
-head:
-	@printf "#\n# Building $@\n#\n"
 
 .PHONY: clean
 clean:
-	rm -f unistd.h/unistd sys_wait
+	rm -f unistd.h/unistd stdlib.h/stdlib sys_wait
