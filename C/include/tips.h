@@ -2,6 +2,8 @@
 #define TIPS_H
 
 #include <sys/wait.h>
+#include <sys/times.h>
+#include <sys/resource.h>
 
 #include <errno.h>
 #include <stdio.h>
@@ -12,6 +14,8 @@
 #define TIPS_ANSI_RED "\x1b[0;31m"
 #define TIPS_ANSI_BLUE "\x1b[0;34m"
 #define TIPS_ANSI_RESET "\x1b[0m"
+
+#define TIPS_RESET_ERRNO errno = ENOENT
 
 #define TIPS_PERROR_AND_EXIT_FAILURE \
     do { \
