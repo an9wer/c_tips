@@ -1,8 +1,15 @@
+#MAKE := make
+
+MAKEFLAGS := --no-print-directory
+
+TARGETS_DIR := targets
+TARGETS := unistd sys/wait stdlib sys/times sys/resource
+
 .PHONY: all
 all: unistd.h/unistd sys_wait stdlib.h/stdlib sys_times sys_resource
 
 unistd.h/unistd: unistd.h/Makefile
-	cd unistd.h && make
+	$(MAKE) $(MAKEFLAGS) --directory=unistd.h
 
 stdlib.h/stdlib:
 	gcc -Iinclude stdlib.h/main.c stdlib.h/system.c -o $@

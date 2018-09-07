@@ -1,4 +1,2 @@
-res := $(wildcard *.mk)
-
-main:
-	@echo $(res)
+all:
+	printf "%s\n" $(wildcard *.mk)

@@ -1,6 +1,9 @@
 #ifndef TIPS_UNISTD_H
 #define TIPS_UNISTD_H
 
+void tips_nice(void);
+void tips_getlogin(void);
+
 void tips_getuid(void);
 void tips_getgid(void);
 void tips_geteuid(void);
@@ -17,7 +20,5 @@ void tips_fork_orphan(void);
 
 void tips_execvp(void);
 void tips_execl(void);
-
-void tips_nice(void);
 
 #endif /* TIPS_UNISTD_H */

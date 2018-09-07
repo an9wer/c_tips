@@ -3,6 +3,8 @@
 
 int main(void)
 {
+    tips_getlogin();
+
     tips_nice();
 
     tips_getuid();
