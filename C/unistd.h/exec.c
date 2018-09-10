@@ -59,7 +59,7 @@ void tips_execl(void)
     else if (pid == 0)
         execl("/bin/bash", "/bin/bash", "-c", "echo 'child process'", (char *)0);
 
-    else
+    else {
         w_pid = waitpid(pid, &status, 0);
         if (w_pid == -1)
             TIPS_PERROR_AND_EXIT_FAILURE;
@@ -68,4 +68,5 @@ void tips_execl(void)
                 TIPS_PRINTE_AND_EXIT_FAILURE("parent process: oops");
         } else
             TIPS_PRINTE_AND_EXIT_FAILURE("parent process: oops");
+    }
 }
