@@ -1,6 +1,10 @@
 #ifndef TIPS_UNISTD_H
 #define TIPS_UNISTD_H
 
+void tips_getpgrp(void);
+void tips_getpgid(void);
+void tips_setpgid(void);
+
 void tips_nice(void);
 void tips_getlogin(void);
 

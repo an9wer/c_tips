@@ -3,6 +3,10 @@
 
 int main(void)
 {
+    tips_getpgrp();
+    tips_getpgid();
+    tips_setpgid();
+
     tips_getlogin();
 
     tips_nice();
