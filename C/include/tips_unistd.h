@@ -1,13 +1,16 @@
 #ifndef TIPS_UNISTD_H
 #define TIPS_UNISTD_H
 
-void tips_getpgrp(void);
-void tips_getpgid(void);
-void tips_setpgid(void);
-
 void tips_nice(void);
 void tips_getlogin(void);
 
+void tips_getpid(void);
+void tips_getppid(void);
+void tips_getpgrp(void);
+void tips_getpgid(void);
+void tips_setpgid(void);
+void tips_getsid(void);
+void tips_setsid(void);
 void tips_getuid(void);
 void tips_getgid(void);
 void tips_geteuid(void);
