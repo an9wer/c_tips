@@ -10,12 +10,12 @@ int main(void)
     tips_getpid();
     tips_getppid();
 
-    tips_getsid();
-    tips_setsid();
-
     tips_getpgrp();
     tips_getpgid();
     tips_setpgid();
+
+    tips_getsid();
+    tips_setsid();
 
     tips_getuid();
     tips_getgid();

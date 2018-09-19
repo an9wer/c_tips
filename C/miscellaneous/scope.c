@@ -25,22 +25,22 @@
  * completed. 
  */
 
-#include <stdio.h>
+#include "tips.h"
 
-static char * file_scope_v = "anything";        // file scope
+static int file_scope_v = 0;    // file scope
 
-char * foo(char * function_prototype_scope_v);  // function prototype scope
-
-int main(void)
+void tips_scope(void)
 {
-    printf("%s\n", foo("someting"));
-    return 0;
+    TIPS_HEAD;
+
+    int block_scope_v1 = 0;                                                 // block scope
+    { int block_scope_v1 = 1; }                                             // block scope (redefinition is ok here)
+    for (int block_scope_v2 = 1; block_scope_v2 < 10; block_scope_v2++);    // block scope (C99 and later)
+
+    printf("file_scope_v: %d\n", file_scope_v);
+    printf("block_score_v1: %d\n", block_scope_v1);
+    printf("block_scope_v2: cannot get it\n");
 }
 
-char * foo(char * block_scope_v1)                                           // block scope
-{
-    { int block_scope_v2 = 1; }                                             // block scope
-    for (int block_scope_v3 = 1; block_scope_v3 < 10; block_scope_v3++);    // block scope (C99 and later)
-
-    return block_scope_v1;
-}
+void tips_scope2(char *function_prototype_scope_v);     // function prototype scope
+void tips_scope2(char *block_score_v) {}                // block scope

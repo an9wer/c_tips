@@ -13,7 +13,7 @@ void tips_fork_zombie(void)
 
     /*
      * The first content of printf will be flushed before executing fork because
-     * stdout is line buffered. For the same reason the second content of printf
+     * stdout is line buffered. Otherwise, the second content of printf
      * whithout '\n' will be bufferd, so we can get it after executing fork.
      */
     printf("This is only in parent process.\n");

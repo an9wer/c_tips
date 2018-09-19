@@ -19,6 +19,7 @@ void tips_getppid(void)
     printf("the id of parent of current process: %d\n", ppid);
 }
 
+
 /*
  * pid_t getpgrp(void)
  * pid_t getpgid(pid_t pid)
@@ -49,16 +50,24 @@ void tips_setpgid(void)
 {
     TIPS_HEAD;
 
-    pid_t pgid;
+    int status;
+    pid_t pid = fork();
 
-    pgid = getpgrp();
-    printf("the progress group id of current process: %d\n", pgid);
-
-    if (setpgid(0, pgid) == -1)
+    if (pid == -1) 
         TIPS_PERROR_AND_EXIT_FAILURE;
+    else if (pid == 0) {
+        printf("the id of child process: %d\n", getpid());
+        printf("the progress group id of child process: %d\n", getpgrp());
 
-    pgid = getpgrp();
-    printf("the group id of current process after setpgid: %d\n", pgid);
+        if (setpgid(0, 0) == -1)
+            TIPS_PERROR_AND_EXIT_FAILURE;
+        printf("the group id of child process after setpgid: %d\n", getpgrp());
+
+        exit(EXIT_SUCCESS);
+    } else {
+        if (waitpid(pid, &status, 0) == -1)
+            TIPS_PERROR_AND_EXIT_FAILURE;
+    }
 }
 
 
@@ -80,11 +89,25 @@ void tips_getsid(void)
 void tips_setsid(void)
 {
     TIPS_HEAD;
-    pid_t sid = setsid();
+    int status;
+    pid_t sid;
+    pid_t pid = fork();
 
-    if (sid == -1)
+    if (pid == -1) 
         TIPS_PERROR_AND_EXIT_FAILURE;
-    printf("the new session leader id: %d\n", sid);
+    else if (pid == 0) {
+        printf("the id of child process: %d\n", getpid());
+
+        sid = setsid();
+        if (sid == -1)
+            TIPS_PERROR_AND_EXIT_FAILURE;
+        printf("the id of new session leader: %d\n", sid);
+
+        exit(EXIT_SUCCESS);
+    } else {
+        if (waitpid(pid, &status, 0) == -1)
+            TIPS_PERROR_AND_EXIT_FAILURE;
+    }
 }
 
 

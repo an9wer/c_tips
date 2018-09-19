@@ -1,4 +1,5 @@
-DIRS := unistd.h stdlib.h sys/times.h sys/resource.h sys/wait.h
+DIRS := miscellaneous unistd.h stdlib.h signal.h \
+    sys/times.h sys/resource.h sys/wait.h
 
 MAKE := make
 MAKEFLAGS = --no-print-directory
