@@ -11,6 +11,7 @@
 #include <string.h>
 #include <signal.h>
 #include <unistd.h>
+#include <setjmp.h>
 
 #define TIPS_ANSI_RED "\x1b[0;31m"
 #define TIPS_ANSI_BLUE "\x1b[0;34m"

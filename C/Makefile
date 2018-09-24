@@ -1,4 +1,4 @@
-DIRS := miscellaneous unistd.h stdlib.h signal.h \
+DIRS := miscellaneous unistd.h stdlib.h signal.h setjmp.h \
     sys/times.h sys/resource.h sys/wait.h
 
 MAKE := make

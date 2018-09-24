@@ -3,6 +3,7 @@
 
 int main(void)
 {
+    tips_alarm();
     tips_signal();
     tips_raise();
 
