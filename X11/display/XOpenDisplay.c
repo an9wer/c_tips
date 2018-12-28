@@ -1,5 +1,5 @@
 /*
- *
+ * Display *XOpenDisplay(char *display_name);
  */
 
 #include "tips.h"
@@ -18,4 +18,6 @@ void tips_XOpenDisplay(void)
     printf("display width is %d\n", DisplayWidth(display, screen_number));
     printf("display height is %d\n", DisplayHeight(display, screen_number));
     printf("root window is %ld\n", RootWindow(display, screen_number));
+    printf("white pixel is %ld\n", XWhitePixel(display, screen_number));
+    printf("black pixel is %ld\n", XBlackPixel(display, screen_number));
 }

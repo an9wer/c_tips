@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <X11/Xlib.h>
+#include <X11/Xutil.h>
 
 #define TIPS_ANSI_RED "\x1b[0;31m"
 #define TIPS_ANSI_BLUE "\x1b[0;34m"
